@@ -17,7 +17,7 @@ int main()
         v.push_back(i + 1);
     }
     sp2.addBunch(v.begin(), v.end());
-    sp2.printVector();
+    // sp2.printVector();
     std::cout << sp2.shortestSpan() << std::endl;
     std::cout << sp2.longestSpan() << std::endl;
     return 0;
