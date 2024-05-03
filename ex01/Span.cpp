@@ -64,9 +64,8 @@ int Span::shortestSpan(void)
         throw std::logic_error("Vector is empty or only has one number, can't find shortest span");
     std::sort(this->_v.begin(), this->_v.end());
     std::vector<int>::iterator it = this->_v.begin();
-    std::vector<int>::iterator it2 = this->_v.begin();
-    it2++;
-    return(*it2 - *it);
+    it++;
+    return(*(it--) - *it);
 }
 
 Span::~Span()
