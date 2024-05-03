@@ -19,11 +19,7 @@ Span& Span::operator=(const Span &copy)
     if(this != &copy)
     {
         this->_N = copy._N;
-        std::vector<int>::const_iterator it = copy._v.begin();
-        for(; it != copy._v.end(); it++)
-        {
-            this->_v.push_back(*it);
-        }
+        this->_v.operator=(copy._v);
     }
     return(*this);
 }
