@@ -30,8 +30,8 @@ class Span
 
         void addNumber(int);
         void addBunch(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-        int shortestSpan(void);
-        int longestSpan(void);
+        unsigned int shortestSpan(void);
+        unsigned int longestSpan(void);
         void printVector(void);
 };
 

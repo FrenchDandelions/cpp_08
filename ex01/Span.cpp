@@ -50,22 +50,29 @@ void Span::printVector(void)
     }
 }
 
-int Span::longestSpan(void)
+unsigned int Span::longestSpan(void)
 {
     if(this->_v.empty() || this->_v.size() <= 1)
         throw std::logic_error("Vector is empty or only has one number, can't find longest span");
-    std::sort(this->_v.begin(), this->_v.end());
-    return(this->_v.back() - this->_v.front());
+    std::vector<int> v = this->_v;
+    std::sort(v.begin(), v.end());
+    return(std::abs(v.back() - v.front()));
 }
 
-int Span::shortestSpan(void)
+unsigned int Span::shortestSpan(void)
 {
     if(this->_v.empty() || this->_v.size() <= 1)
         throw std::logic_error("Vector is empty or only has one number, can't find shortest span");
-    std::sort(this->_v.begin(), this->_v.end());
-    std::vector<int>::iterator it = this->_v.begin();
-    it++;
-    return(*(it--) - *it);
+    std::vector<int> v = this->_v;
+    std::sort(v.begin(), v.end());
+    std::vector<int>::iterator it = v.begin();
+    int min = std::abs((*(it + 1)) - *it);
+    for(; it+1 != v.end(); it ++)
+    {
+        if(min > std::abs((*(it + 1)) - *it))
+            min = std::abs((*(it + 1)) - *it);
+    }
+    return(min);
 }
 
 Span::~Span()
