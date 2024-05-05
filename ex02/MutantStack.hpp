@@ -26,6 +26,8 @@ class MutantStack : virtual public std::stack<T>
         typedef typename MutantStack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
         MutantStack();
+        MutantStack(const MutantStack<T> &copy);
+        MutantStack& operator= (const MutantStack<T> &copy);
         ~MutantStack();
 
         iterator begin();
@@ -44,9 +46,24 @@ MutantStack<T>::MutantStack()
 }
 
 template <typename T>
+MutantStack<T>::MutantStack(const MutantStack<T> &copy)
+{
+    this->MutantStack::operator=(copy);
+}
+
+template <typename T>
+MutantStack<T>& MutantStack<T>::operator=(const MutantStack<T> &copy)
+{
+    if(this != &copy)
+        this->std::stack<T>::operator=(copy);
+    return(*this);
+}
+
+template <typename T>
 MutantStack<T>::~MutantStack()
 {
 }
+
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin()
 {
