@@ -15,7 +15,7 @@
 
 
 template <typename T>
-struct MutantStack : virtual public std::stack<T> 
+class MutantStack : virtual public std::stack<T> 
 {
     private:
 
