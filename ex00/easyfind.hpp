@@ -24,4 +24,13 @@ int easyfind(T &container, int to_find)
     return(*it);
 }
 
+template <typename T>
+int easyfind(const T &container, int to_find)
+{
+    typename T::const_iterator it = std::find(container.begin(), container.end(), to_find);
+    if(it == container.end())
+        throw std::out_of_range("Value not found");
+    return(*it);
+}
+
 #endif

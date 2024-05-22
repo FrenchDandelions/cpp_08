@@ -82,4 +82,20 @@ int main()
     {
         std::cerr << "Caught Exception: " << e.what() << std::endl;
     }
+    std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+	std::cout <<"CONST VECTOR CONTAINER TEST:" << std::endl;
+	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << std::endl << GREEN "USING EASYFIND TO FIND 4 AND 5:" << std::endl;
+	std::cout << "---------------------------------------------------" RESET << std::endl;
+    const std::vector<int> c_v = v;
+    try
+    {
+        std::cout << easyfind(c_v, 4) << std::endl;
+        std::cout << easyfind(c_v, 5) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Caught Exception: " << e.what() << std::endl;
+    }
+    
 }
